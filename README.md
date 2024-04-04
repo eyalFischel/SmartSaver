@@ -36,3 +36,12 @@ The application will also provide the user with insights about their spending ha
 
 ### Design
 ##### TODO - add the following section to the README.md
+
+#### Design ideas
+Frontend: React, Ts 
+
+backend: FastAPI, Python, MongoDB
+
+CI/CD: Github actions
+
+Deployment: Docker, Kubernetes

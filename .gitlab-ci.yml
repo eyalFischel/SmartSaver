@@ -9,8 +9,7 @@ services:
 
 before_script:
   - apk update && apk add docker docker-compose
-  - apt-get update && apt-get install make
-  - apt install python3-pip -y
+  - apt-get update && apt-get install make && apt-get install python3 && apt-get install python3-pip
   - docker --version
 
 # run_frontend_tests:

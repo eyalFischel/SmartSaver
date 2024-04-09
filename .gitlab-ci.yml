@@ -2,7 +2,7 @@ stages:
   - build
   - test-backend
 
-image: docker:latest
+image: docker:19.03.12
 
 services:
   - docker:dind
@@ -10,6 +10,7 @@ services:
 before_script:
   - apk update && apk add docker docker-compose
   - apt-get update && apt-get install make && apt-get install python3 && apt-get install python3-pip
+  - pip3 install pytest requests
   - docker --version
 
 # run_frontend_tests:
@@ -30,7 +31,6 @@ test-backend:
   stage: test-backend
   script:
     - docker-compose up -d
-    - python3 -m pip install --progress-bar off -r backend/requirements.txt
     - cd backend/tests
     - pytest -v
   

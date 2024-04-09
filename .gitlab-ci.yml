@@ -14,9 +14,6 @@ before_script:
   - apk update && apk add docker docker-compose
   - apk add python3 py3-pip 
   - pip3 install pytest requests
-  - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
 
 test-backend:
   stage: test-backend

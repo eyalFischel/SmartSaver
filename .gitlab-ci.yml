@@ -1,0 +1,33 @@
+stages:
+  - test-backend
+  - test-frontend
+  - build
+  - deploy
+
+run_backend_tests:
+  stage: test-backend
+  image: python:3.9-slim-buster
+  before_script:
+    - apt-get update && apt-get install make
+  script:
+    - make test
+
+# run_frontend_tests:
+#   stage: test-frontend
+#   image: node:14
+#   before_script:
+#     - npm install
+#   script:
+#     - npm run test
+
+build:
+  stage: build
+  image: docker:19.03.12
+  script:
+    - docker-compose build
+  
+deploy:
+  stage: deploy
+  image: docker:19.03.12
+  script:
+    - docker-compose up -d

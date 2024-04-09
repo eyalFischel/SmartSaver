@@ -1,0 +1,41 @@
+openapi: '3.0.2'
+info:
+  title: API service for managing budget and expenses app
+  version: '1.0'
+servers:
+  - url: http://localhost:8000
+
+paths:
+   /example:
+     post:
+       summary: An example of a post request.
+       parameters:
+         - in: header
+           name: X-API-Key
+           schema:
+             type: string
+           required: true
+           description: API key for authentication.
+       requestBody:
+         required: true
+         content:
+           application/json:
+             schema:
+               type: object
+               properties:
+                 example:
+                   type: string
+                   example: 'example'
+       responses:
+         '200':
+           description: Successfully created a new event.
+         '400':
+           description: Bad request. Invalid input data.
+           content:
+             application/json:
+               schema:
+                 type: object
+                 properties:
+                   error:
+                     type: string
+                     example: Invalid input data.

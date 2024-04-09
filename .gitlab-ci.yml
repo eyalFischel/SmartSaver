@@ -30,7 +30,7 @@ test-backend:
   stage: test-backend
   script:
     - docker-compose up -d
-    - pip3 install --progress-bar off -r backend/requirements.txt
+    - python3 -m pip install --progress-bar off -r backend/requirements.txt
     - cd backend/tests
     - pytest -v
   

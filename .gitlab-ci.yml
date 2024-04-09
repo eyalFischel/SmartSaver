@@ -12,6 +12,7 @@ stages:
 #   script:
 #     - npm run test
 
+
 build:
   stage: build
   image: docker:19.03.12
@@ -30,4 +31,5 @@ run_backend_tests:
   before_script:
     - apt-get update && apt-get install make
   script:
+    - pip install pytest
     - pytest -v

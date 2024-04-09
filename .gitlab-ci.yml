@@ -1,8 +1,8 @@
 stages:
-  - test-backend
   - test-frontend
   - build
   - deploy
+  - test-backend
 
 # run_frontend_tests:
 #   stage: test-frontend

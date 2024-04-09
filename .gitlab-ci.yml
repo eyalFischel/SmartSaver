@@ -12,7 +12,7 @@ stages:
 #     - npm run test
 
 playgroound:
-  stage: docker-compose-playgroound
+  stage: playgroound
   image: docker:19.03.12
   services:
     - docker:19.03.12-dind

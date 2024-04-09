@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 #.env 
-.env
+# .env TODO remove this line after adding .env to .gitignore

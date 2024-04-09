@@ -3,7 +3,7 @@ services:
   mongodb:
     build:
       context: .
-      dockerfile: /dockers/mongodb.Dockerfile
+      dockerfile: dockers/mongodb.Dockerfile
     ports:
       - "27018:27017"
     restart: on-failure
@@ -14,7 +14,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: /dockers/backend.Dockerfile
+      dockerfile: dockers/backend.Dockerfile
     ports:
       - "8000:8000"
     restart: on-failure

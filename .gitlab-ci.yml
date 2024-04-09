@@ -18,6 +18,7 @@ playgroound:
     - docker:19.03.12-dind
   before_script:
     - apk update && apk add docker docker-compose
+
   script:
     - docker-compose --version
     - docker-compose up -d

@@ -16,8 +16,6 @@ playgroound:
   image: docker:19.03.12
   services:
     - docker:19.03.12-dind
-  tags:
-    - docker-main 
   before_script:
     - apk update && apk add docker docker-compose
   script:

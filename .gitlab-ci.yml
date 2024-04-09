@@ -12,13 +12,12 @@ stages:
 #     - npm install
 #   script:
 #     - npm run test
-setup:
+envsetup:
   stage: setup
   image: docker:19.03.12
   script:
     - apk update && apk add docker-compose
     - docker-compose --version
-    - pip install -r backend/requirements.txt
 
 build:
   stage: build
@@ -38,4 +37,6 @@ run_backend_tests:
   before_script:
     - apt-get update && apt-get install make
   script:
+    - pip install -r backend/requirements.txt
+    - cd backend/tests
     - pytest -v

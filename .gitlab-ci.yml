@@ -1,6 +1,5 @@
 stages:
   - test-frontend
-  - setup
   - build
   - deploy
   - test-backend
@@ -12,22 +11,20 @@ stages:
 #     - npm install
 #   script:
 #     - npm run test
-envsetup:
-  stage: setup
-  image: docker:19.03.12
-  script:
-    - apk update && apk add docker-compose
-    - docker-compose --version
 
 build:
   stage: build
   image: docker:19.03.12
+  before_script:
+    - apk update && apk add docker-compose
   script:
     - docker-compose build
   
 deploy:
   stage: deploy
   image: docker:19.03.12
+  before_script:
+    - apk update && apk add docker-compose
   script:
     - docker-compose up -d
 

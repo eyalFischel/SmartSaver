@@ -18,7 +18,7 @@ before_script:
 test-backend:
   stage: test-backend
   script:
-    - docker-compose up -d
+    - docker-compose up
     - cd backend/tests
     - pytest -v
   

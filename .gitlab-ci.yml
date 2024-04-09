@@ -1,7 +1,16 @@
 stages:
-  - playgroound
+  - build
   - test-backend
-  - deploy
+
+image: docker:latest
+
+services:
+  - docker:dind
+
+before_script:
+  - apk update && apk add docker docker-compose
+  - apt-get update && apt-get install make
+  - docker --version
 
 # run_frontend_tests:
 #   stage: test-frontend
@@ -11,24 +20,16 @@ stages:
 #   script:
 #     - npm run test
 
-playgroound:
-  stage: playgroound
-  image: docker:19.03.12
-  services:
-    - docker:19.03.12-dind
-  before_script:
-    - apk update && apk add docker docker-compose
-
+build:
+  stage: build
   script:
-    - docker-compose --version
-    - docker-compose up -d
+    - docker-compose build
+  
 
 test-backend:
   stage: test-backend
-  image: python:3.9-slim
-  before_script:
-    - apt-get update && apt-get install make
   script:
+    - docker-compose up -d
     - pip install --progress-bar off -r backend/requirements.txt
     - cd backend/tests
     - pytest -v

@@ -25,13 +25,12 @@ playgroound:
 
 test-backend:
   stage: test-backend
-  image: docker:19.03.12
+  image: python:3.9-slim
   before_script:
     - apt-get update && apt-get install make
   script:
-    - apt-get install python3-pip python3-dev -y
-    - pip install --upgrade pip
-    - pip install -r backend/requirements.txt
+
+    - pip install --progress-bar off --privileged -r backend/requirements.txt
     - cd backend/tests
     - pytest -v
   

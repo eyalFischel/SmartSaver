@@ -22,25 +22,18 @@ test-backend:
     - cd backend/tests
     - pytest -v
   
-# run_frontend_tests:
-#   stage: test-frontend
-#   image: node:14
-#   before_script:
-#     - npm install
-#   script:
-#     - npm run test
+=======
+  - test-frontend
+  - build
+  - deploy
 
-# build:
-#   stage: build
-#   script:
-#     - docker-compose build
-  
+run_backend_tests:
+  stage: test-backend
+  image: python:3.9-slim-buster
+  before_script:
+    - apt-get update && apt-get install make
+  script:
+    - make test
 
-# deploy:
-#   stage: deploy
-#   image: docker:19.03.12
-#   before_script:
-#     - apk update && apk add docker-compose
-#   script:
-#     - docker-compose up -d
+
 

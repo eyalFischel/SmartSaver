@@ -32,3 +32,38 @@ Some PR guidance:
 - What actually happens
 - Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
 
+## Code of Conduct
+
+This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [maintainer's email].
+
+
+## Code Contribution
+
+We welcome contributions from the community! To contribute to the project, follow these steps:
+
+1. Fork the repository and clone it locally.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`.
+3. Make your changes and ensure that your code follows the [style guidelines](#style-guidelines).
+4. Commit your changes with a descriptive commit message: `git commit -m "Your message here"`.
+5. Push your branch to your fork: `git push origin feature-name`.
+6. Create a pull request against the `main` branch of the original repository.
+7. Ensure that your pull request description clearly describes the changes and the problem it solves.
+
+Once your pull request is submitted, it will be reviewed by the maintainers. We appreciate your patience during the review process.
+
+## Style Guidelines
+
+To maintain consistency and readability in the codebase, please adhere to the following style guidelines:
+
+- **Python Back End**:
+  - Follow PEP 8 guidelines.
+  - Use meaningful variable and function names.
+  - Write docstrings for functions and modules.
+- **React Front End**:
+  - Follow the Airbnb JavaScript Style Guide.
+  - Use functional components where possible.
+  - Use meaningful component and variable names.
+  
+## Fun
+have fun!
+ヾ(•ω•`)o

@@ -8,7 +8,8 @@ WORKDIR /app
 COPY backend/requirements.txt .
 
 # Install any dependencies specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install --progress-bar off --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
 COPY backend/ .

@@ -1,9 +1,10 @@
-version: "3.8"
+
+version: "3.3"
 services:
   mongodb:
     build:
       context: .
-      dockerfile: /dockers/mongodb.Dockerfile
+      dockerfile: dockers/mongodb.Dockerfile
     ports:
       - "27018:27017"
     restart: on-failure
@@ -11,12 +12,25 @@ services:
       - .env 
     networks:
       - my-network
-  api:
+
+  backend:
     build:
       context: .
-      dockerfile: /dockers/backend.Dockerfile
+      dockerfile: dockers/backend.Dockerfile
     ports:
       - "8000:8000"
+    restart: on-failure
+    env_file:
+      - .env 
+    networks:
+      - my-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: dockers/frontend.Dockerfile
+    ports:
+      - "3000:3000"
     restart: on-failure
     env_file:
       - .env 

@@ -1,0 +1,46 @@
+stages:
+  - test-backend
+
+image: docker:19.03.12
+
+cache:
+  paths:
+    - .cache/pip
+
+services:
+  - docker:dind
+
+before_script:
+  - apk update && apk add docker docker-compose
+  - apk add python3 py3-pip 
+  - pip3 install pytest requests
+
+test-backend:
+  stage: test-backend
+  script:
+    - docker-compose up
+    - cd backend/tests
+    - pytest -v
+  
+# run_frontend_tests:
+#   stage: test-frontend
+#   image: node:14
+#   before_script:
+#     - npm install
+#   script:
+#     - npm run test
+
+# build:
+#   stage: build
+#   script:
+#     - docker-compose build
+  
+
+# deploy:
+#   stage: deploy
+#   image: docker:19.03.12
+#   before_script:
+#     - apk update && apk add docker-compose
+#   script:
+#     - docker-compose up -d
+

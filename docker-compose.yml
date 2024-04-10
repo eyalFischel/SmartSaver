@@ -11,12 +11,25 @@ services:
       - .env 
     networks:
       - my-network
-  api:
+      
+  backend:
     build:
       context: .
       dockerfile: dockers/backend.Dockerfile
     ports:
       - "8000:8000"
+    restart: on-failure
+    env_file:
+      - .env 
+    networks:
+      - my-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: dockers/frontend.Dockerfile
+    ports:
+      - "3000:3000"
     restart: on-failure
     env_file:
       - .env 

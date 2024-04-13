@@ -1,7 +1,9 @@
 import os
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
+from app.routers.Transaction import router as transaction_router
+
 
 """
 Description: 
@@ -12,14 +14,8 @@ This file is the main file for the backend. It will be used to run the backend A
 """
 
 app = FastAPI()
+app.include_router(transaction_router)
 
-basefolder = os.path.dirname(__file__) 
+
+basefolder = os.path.dirname(__file__)
 load_dotenv(os.path.join(basefolder, ".env"))
-
-# basic first route
-@app.post('/example') 
-async def root():
-    try:
-        return {"message": "Hello World!"}
-    except Exception as error:
-        raise HTTPException(status_code=400, detail=f"Bad request. Invalid input data.")

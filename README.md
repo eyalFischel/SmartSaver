@@ -1,4 +1,6 @@
 # SmartSaver
+## Warnning
+this project uses your banking acount details to generate data about you. Please enter your own details at your own risk
 
 ## Description
 SmartSaver is a web application that helps users to save money by providing them tools that helps them to track their expenses and to set a budget for each category of expenses. 
@@ -14,6 +16,7 @@ The application will also provide the user with insights about their spending ha
 - [javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [FastAPI framework](https://fastapi.tiangolo.com/)
 - [MongoDB](https://www.mongodb.com/)
+- [Redis](https://redis.io/)
 - [React](https://reactjs.org/)
 - [Docker](https://www.docker.com/)
 - [kubernetes](https://kubernetes.io/)

@@ -63,11 +63,6 @@ async def update_transaction(transaction_id: str, transaction: Transaction):
 # Delete
 @router.delete("/{transaction_id}", response_model=Transaction)
 async def delete_transaction(transaction_id: str):
-    print(database)
-    print("-" * 200)
-    print(transaction_id)
-    print(transaction_id not in database)
-    print(database[transaction_id])
     if transaction_id not in database:
         raise HTTPException(status_code=404, detail="Transaction not found")
     deleted_transaction = database.pop(transaction_id)
